@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1> image Upload</h1>
+		<form action="/" method="POST" enctype="multipart/form-data">
+				<input type="text" id="name" placeholder="Image name" name="name" required><br>
+				<textarea name="desc" id="desc" cols="30" rows="10" placeholder="Imagedescription" required></textarea><br>
+				<label for="image"><i class="fas fa-cloud-upload-alt"></i>  Upload Image</label>
+				<div id="uploaded-filename"></div>
+				<input type="file" id="image"
+					name="image"  accept="image/*"  required/>
+					<br>
+				<button id="submit" type="submit">Submit</button>
+		</form>
+	<h1>Uploaded Images</h1>
+	<div id="main">
+		<% imgModel.forEach(function(image) { %>
+			<div id="card">
+				<img src="data:image/<%=image.img.contentType%>;base64,
+					<%=image.img.data.toString('base64')%>">
+					<h2><%= image.name %></h2>
+                      <p id="imagedesc"><%= image.desc %></p>
+					  <a href="data:<%=image.img.contentType%>;base64,<%=image.img.data.toString('base64')%>" download="image.png"  rel="noopener noreferrer">download</a>
+					  <button id="delete" data-id="<%= image._id%>" onclick="deleteimages(event)"><i class="fas fa-trash-alt"></i> Delete</button>
+</div>
+		<% }) %>
+	</div>
+	<script>
+     var input = document.getElementById( 'image' );
+var uploaded_filename= document.getElementById( 'uploaded-filename' );
+
+input.addEventListener( 'change', showfilename );
+
+// to show the details of the image that we are selected 
+function showfilename( event ) {
+  var input = event.srcElement;
+  var fileName = input.files[0].name;
+  uploaded_filename.textContent =fileName;
+}
+
+//For deleting the uploaded image
+		function deleteimages(e){
+			e.preventDefault();
+          const id = e.target.getAttribute('data-id');
+          fetch(`http://localhost:5000/${id}`,{
+              method:"DELETE"
+          }).then(()=>{
+              console.log("deleted")
+             location.reload();
+          }
+          ).catch((err)=>{
+   console.log(err)
+          })
+        }
+	</script>
+</body>
+</html>
