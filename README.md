@@ -1,6 +1,6 @@
 # multerimageupload
 
-This repo is about creating a image-upload-app using node.js.
+This repo is about creating a single-image-upload-app  using node.js,express,multer,mongodb and ejs.After you uploaded the image .ALL the image you have uploaded will be displayed in uploaded images section you can either download or delete it.
 
 ## Tech Stack
 
@@ -14,8 +14,6 @@ This repo is about creating a image-upload-app using node.js.
 To run this project, you will need to add the following environment variables to your .env file
 
 `MONGODBURL`
-
-
 
     
 ## Run Locally
