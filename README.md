@@ -16,13 +16,13 @@ This repo is about creating a image-upload-app using node.js.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/B-chandru/multerimageupload.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd multerimageupload
 ```
 
 Install dependencies
@@ -35,6 +35,10 @@ Start the server
 
 ```bash
   npm run start
+```
+Start the server in development
+```bash
+  npm run dev
 ```
 
 
