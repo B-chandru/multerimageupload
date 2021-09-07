@@ -1,6 +1,6 @@
 # multerimageupload
 
-This repo is about creating a single-image-upload-app  using node.js,express,multer,mongodb and ejs.After you uploaded the image .ALL the image you have uploaded will be displayed in uploaded images section you can either download or delete it.
+This repo is about creating a single-image-upload-app  using node.js,express,multer,mongodb and ejs.All the images that  you have uploaded will be displayed in uploaded images section you can either download or delete it.
 
 ## Tech Stack
 
